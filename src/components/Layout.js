@@ -12,7 +12,7 @@ const Layout = ({ children }) => {
   //   Handle Logout
   const handleLogout = () => {
     localStorage.clear();
-    message.success("Logged out Successfully");
+    message.success("Logged Out Successfully");
     navigate("/login");
   };
 
