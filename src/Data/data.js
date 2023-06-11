@@ -10,7 +10,7 @@ export const userMenu = [
     icon: "fa-solid fa-calendar-days",
   },
   {
-    name: "Apply Doctor",
+    name: "Doctor Application",
     path: "/apply-doctor",
     icon: "fa-solid fa-user-doctor",
   },

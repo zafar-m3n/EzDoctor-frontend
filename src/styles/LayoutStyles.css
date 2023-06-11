@@ -59,7 +59,7 @@
 .active i {
   background-color: white;
   color: rgba(0, 0, 0, 0.75);
-  padding: 10px;
+  padding: 5px;
 }
 .header-content {
   display: flex;
