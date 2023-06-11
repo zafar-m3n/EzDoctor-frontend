@@ -1,10 +1,41 @@
 import React from "react";
 import Layout from "../components/Layout";
-import { Col, Form, Input, Row, TimePicker } from "antd";
+import { Col, Form, Input, Row, TimePicker, message } from "antd";
+import { useSelector, useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { showLoading, hideLoading } from "../redux/features/alertSlice";
+import axios from "axios";
 
 const ApplyDoctor = () => {
-  const handleFinish = (values) => {
-    console.log(values);
+  const { user } = useSelector((state) => state.user);
+
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const handleFinish = async (values) => {
+    try {
+      dispatch(showLoading());
+      const res = await axios.post(
+        "/api/v1/user/apply-doctor",
+        { ...values, userId: user._id },
+        {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("token")}`,
+          },
+        }
+      );
+      dispatch(hideLoading());
+      if (res.data.success) {
+        message.success(res.data.success);
+        navigate("/");
+      } else {
+        message.error(res.data.success);
+      }
+    } catch (error) {
+      dispatch(hideLoading());
+      console.log(error);
+      message.error("Something went wrong!");
+    }
   };
   return (
     <Layout>
@@ -15,7 +46,7 @@ const ApplyDoctor = () => {
           <Col xs={24} md={24} lg={8}>
             <Form.Item
               label="First Name"
-              name="firstname"
+              name="firstName"
               required
               rules={[{ required: true }]}
             >
@@ -25,7 +56,7 @@ const ApplyDoctor = () => {
           <Col xs={24} md={24} lg={8}>
             <Form.Item
               label="Last Name"
-              name="lastname"
+              name="lastName"
               required
               rules={[{ required: true }]}
             >
@@ -37,7 +68,7 @@ const ApplyDoctor = () => {
               label="NIC"
               name="nic"
               required
-              maxlength={12}
+              maxLength={12}
               rules={[{ required: true }]}
             >
               <Input type="text" placeholder="Your NIC Number" />
@@ -98,13 +129,16 @@ const ApplyDoctor = () => {
             </Form.Item>
           </Col>
           <Col xs={24} md={24} lg={8}>
-            <Form.Item label="Timings" name="timing" required>
-              <TimePicker.RangePicker />
+            <Form.Item label="Timings" name="timings" required>
+              <TimePicker.RangePicker
+                format="HH:mm"
+                style={{ width: "100%" }}
+              />
             </Form.Item>
           </Col>
         </Row>
-        <div className="d-flex justify-content-end">
-          <button className="btn btn-outline-light" type="submit">
+        <div className="d-flex justify-content-center">
+          <button className="btn btn-outline-light form-btn" type="submit">
             Submit
           </button>
         </div>

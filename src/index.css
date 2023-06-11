@@ -20,3 +20,8 @@
 .spinner-circle {
   color: white;
 }
+
+.form-btn{
+  width: 250px !important;
+  /* margin-top: 25px !important; */
+}
