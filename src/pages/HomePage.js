@@ -22,9 +22,9 @@ const HomePage = () => {
     getUserData();
   }, []);
   return (
-    <div>
+    <Layout>
       <h1>HomePage</h1>
-    </div>
+    </Layout>
   );
 };
 
