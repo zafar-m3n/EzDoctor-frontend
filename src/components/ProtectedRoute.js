@@ -14,7 +14,7 @@ export default function ProtectedRoute({ children }) {
     try {
       dispatch(showLoading());
       const res = await axios.post(
-        "api/v1/user/getUserData",
+        "/api/v1/user/getUserData",
         { token: localStorage.getItem("token") },
         {
           headers: {
@@ -31,8 +31,8 @@ export default function ProtectedRoute({ children }) {
       }
     } catch (error) {
       dispatch(hideLoading());
-      localStorage.clear();
       console.log(error);
+      localStorage.clear();
     }
   };
 
