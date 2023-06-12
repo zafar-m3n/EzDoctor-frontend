@@ -16,7 +16,41 @@ const Layout = ({ children }) => {
     navigate("/login");
   };
 
-  const SidebarMenu = user?.isAdmin ? adminMenu : userMenu;
+  // DOCTOR MENU START
+  const doctorMenu = [
+    {
+      name: "Home",
+      path: "/",
+      icon: "fa-solid fa-house",
+    },
+    {
+      name: "Appointments",
+      path: "/appointments",
+      icon: "fa-solid fa-calendar-days",
+    },
+    // {
+    //   name: "Reports",
+    //   path: "/reports",
+    //   icon: "fa-solid fa-file-prescription",
+    // },
+    // {
+    //   name: "Medications",
+    //   path: "/medications",
+    //   icon: "fa-solid fa-prescription-bottle-medical",
+    // },
+    {
+      name: "Profile",
+      path: `/doctor/profile/${user?._id}`,
+      icon: "fa-solid fa-user",
+    },
+  ];
+  // DOCTOR MENU END
+
+  const SidebarMenu = user?.isAdmin
+    ? adminMenu
+    : user?.isDoctor
+    ? doctorMenu
+    : userMenu;
   return (
     <>
       <div className="main">
