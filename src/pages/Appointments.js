@@ -21,47 +21,30 @@ const Appointments = () => {
     }
   };
 
-  
+  useEffect(() => {
+    getAppointments();
+  }, []);
+
   const columns = [
     {
       title: "ID",
       dataIndex: "_id",
     },
-    // {
-    //   title: "Name",
-    //   dataIndex: "name",
-    //   render: (text, record) => {
-    //     <span>
-    //       {record.doctorInfo.firstName} {record.doctorInfo.lastName}
-    //     </span>;
-    //   },
-    // },
-    // {
-    //   title: "Phone",
-    //   dataIndex: "phone",
-    //   render: (text, record) => {
-    //     <span>{record.doctorInfo.phone}</span>;
-    //   },
-    // },
     {
       title: "Date & Time",
       dataIndex: "date",
-      render: (text, record) => {
+      render: (text, record) => (
         <span>
           {moment(record.date).format("DD-MM-YYYY")} &nbsp;
           {moment(record.time).format("HH:mm")}
-        </span>;
-      },
+        </span>
+      ),
     },
     {
       title: "Status",
       dataIndex: "status",
     },
   ];
-
-  useEffect(() => {
-    getAppointments();
-  }, []);
 
   return (
     <Layout>
