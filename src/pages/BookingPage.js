@@ -11,9 +11,9 @@ const BookingPage = () => {
   const { user } = useSelector((state) => state.user);
   const params = useParams();
   const [doctors, setDoctors] = useState([]);
-  const [date, setDate] = useState(" ");
-  const [time, setTime] = useState(" ");
-  const [isAvailable, setIsAvailable] = useState(false);
+  const [date, setDate] = useState("");
+  const [time, setTime] = useState("");
+  const [isAvailable, setIsAvailable] = useState();
   const dispatch = useDispatch();
 
   const getUserData = async () => {
