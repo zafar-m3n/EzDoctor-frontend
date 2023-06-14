@@ -21,6 +21,7 @@ const Appointments = () => {
     }
   };
 
+  
   const columns = [
     {
       title: "ID",
