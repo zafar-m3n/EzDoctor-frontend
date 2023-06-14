@@ -75,8 +75,8 @@ const BookingPage = () => {
           userId: user._id,
           doctorInfo: doctors,
           userInfo: user,
-          date: date,
-          time: time,
+          date: date.format("DD-MM-YYYY"),
+          time: time.format("HH:mm"), 
         },
         {
           headers: {
@@ -118,7 +118,7 @@ const BookingPage = () => {
                 className="m-2"
                 format="DD-MM-YYYY"
                 onChange={(value) => {
-                  setDate(moment(value).format("DD-MM-YYYY"));
+                  setDate(value); // Store moment object in state
                 }}
               />
               <TimePicker
@@ -126,9 +126,10 @@ const BookingPage = () => {
                 className="m-2"
                 format="HH:mm"
                 onChange={(value) => {
-                  setTime(moment(value).format("HH:mm"));
+                  setTime(value); // Store moment object in state
                 }}
               />
+
               <button
                 className="btn btn-light m-2"
                 onClick={handleAvailability}

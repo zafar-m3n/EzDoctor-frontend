@@ -31,6 +31,20 @@ const Appointments = () => {
       dataIndex: "_id",
     },
     {
+      title: "Doctor Name",
+      dataIndex: "name",
+      render: (text, record) => (
+        <span>
+          {record.doctorInfo.firstName} {record.doctorInfo.lastName}
+        </span>
+      ),
+    },
+    {
+      title: "Phone",
+      dataIndex: "phone",
+      render: (text, record) => <span>{record.doctorInfo.phone}</span>,
+    },
+    {
       title: "Date & Time",
       dataIndex: "date",
       render: (text, record) => (
