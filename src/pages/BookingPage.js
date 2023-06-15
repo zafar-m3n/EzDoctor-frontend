@@ -3,7 +3,7 @@ import Layout from "../components/Layout";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { DatePicker, TimePicker, message } from "antd";
-import moment from "moment";
+// import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import { hideLoading, showLoading } from "../redux/features/alertSlice";
 
@@ -76,7 +76,7 @@ const BookingPage = () => {
           doctorInfo: doctors,
           userInfo: user,
           date: date.format("DD-MM-YYYY"),
-          time: time.format("HH:mm"), 
+          time: time.format("HH:mm"),
         },
         {
           headers: {
@@ -100,7 +100,7 @@ const BookingPage = () => {
   }, []);
   return (
     <Layout>
-      <h3>Booking Page</h3>
+      <h2 className="text-center">Booking Page</h2>
       <div className="container m-2">
         {doctors && (
           <div>

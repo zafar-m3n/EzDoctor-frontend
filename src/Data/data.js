@@ -25,9 +25,9 @@ export const userMenu = [
     icon: "fa-solid fa-prescription-bottle-medical",
   },
   {
-    name: "Profile",
-    path: "/profile",
-    icon: "fa-solid fa-user",
+    name: "Consultations",
+    path: "/consultations",
+    icon: "fa-solid fa-users",
   },
 ];
 
@@ -45,11 +45,6 @@ export const adminMenu = [
   {
     name: "Users",
     path: "/admin/users",
-    icon: "fa-solid fa-user",
-  },
-  {
-    name: "Profile",
-    path: "/profile",
     icon: "fa-solid fa-user",
   },
 ];

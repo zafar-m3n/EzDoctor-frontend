@@ -28,16 +28,16 @@ const Layout = ({ children }) => {
       path: "/doctor-appointments",
       icon: "fa-solid fa-calendar-days",
     },
-    // {
-    //   name: "Reports",
-    //   path: "/reports",
-    //   icon: "fa-solid fa-file-prescription",
-    // },
-    // {
-    //   name: "Medications",
-    //   path: "/medications",
-    //   icon: "fa-solid fa-prescription-bottle-medical",
-    // },
+    {
+      name: "Reports",
+      path: "/doctor-reports",
+      icon: "fa-solid fa-file-prescription",
+    },
+    {
+      name: "Medications",
+      path: "/doctor-medications",
+      icon: "fa-solid fa-prescription-bottle-medical",
+    },
     {
       name: "Profile",
       path: `/doctor/profile/${user?._id}`,

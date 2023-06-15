@@ -64,7 +64,7 @@ const Notifications = () => {
   };
   return (
     <Layout>
-      <h4 className="p-3 text-center">Notification Page</h4>
+      <h2 className="p-3 text-center">Notification Page</h2>
       <Tabs>
         <Tabs.TabPane tab="Unread" key={0}>
           <div className="d-flex justify-content-end">

@@ -98,7 +98,7 @@ const DoctorAppointments = () => {
 
   return (
     <Layout>
-      <h1>Appointments</h1>
+      <h2 className="text-center">Appointments</h2>
       <Table columns={columns} dataSource={appointments} />
     </Layout>
   );

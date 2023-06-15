@@ -85,7 +85,7 @@ const Doctors = () => {
 
   return (
     <Layout>
-      <h1>All Doctors</h1>
+      <h2 className="text-center">All Doctors</h2>
       <Table columns={columns} dataSource={doctors} />
     </Layout>
   );

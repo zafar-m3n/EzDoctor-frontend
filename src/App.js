@@ -14,6 +14,11 @@ import Profile from "./pages/doctor/Profile";
 import BookingPage from "./pages/BookingPage";
 import Appointments from "./pages/Appointments";
 import DoctorAppointments from "./pages/doctor/DoctorAppointments";
+import DoctorReports from "./pages/doctor/DoctorReports";
+import DoctorMedications from "./pages/doctor/DoctorMedications";
+import Consultations from "./pages/Consultations";
+import Reports from "./pages/Reports";
+import Medications from "./pages/Medications";
 
 function App() {
   const { loading } = useSelector((state) => state.alerts);
@@ -101,6 +106,46 @@ function App() {
               element={
                 <ProtectedRoute>
                   <DoctorAppointments />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/doctor-medications"
+              element={
+                <ProtectedRoute>
+                  <DoctorMedications />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/doctor-reports"
+              element={
+                <ProtectedRoute>
+                  <DoctorReports />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/medications"
+              element={
+                <ProtectedRoute>
+                  <Medications />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/reports"
+              element={
+                <ProtectedRoute>
+                  <Reports />
+                </ProtectedRoute>
+              }
+            />
+            <Route
+              path="/consultations"
+              element={
+                <ProtectedRoute>
+                  <Consultations />
                 </ProtectedRoute>
               }
             />
